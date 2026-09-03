@@ -1,34 +1,29 @@
 import React, { useState } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const scrollToSection = (id) => {
-    setOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const location = useLocation();
 
   const links = [
-    { name: 'Home', id: 'home' },
-    { name: 'About Us', id: 'about' },
-    { name: 'Departments', id: 'departments' },
-    { name: 'Doctors', id: 'doctors' },
-    { name: 'Appointments', id: 'appointments' },
-    { name: 'Contact Us', id: 'contact' },
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Departments', path: '/departments' },
+    { name: 'Doctors', path: '/doctors' },
+    { name: 'Appointments', path: '/appointments' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         
-        {/* Brand Logo: PRISM Geometric Facet + Medical Plus Icon */}
-        <button 
-          onClick={() => scrollToSection('home')} 
-          className="flex items-center gap-3 text-left focus:outline-none cursor-pointer"
+        {/* Brand Logo */}
+        <Link 
+          to="/" 
+          onClick={() => setOpen(false)}
+          className="flex items-center gap-3 text-left focus:outline-none"
         >
           <div className="p-1.5 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center shadow-sm">
             <svg 
@@ -51,13 +46,9 @@ export default function Navbar() {
                   <stop offset="100%" stopColor="#1d4ed8" />
                 </linearGradient>
               </defs>
-
-              {/* Prism Facets */}
               <polygon points="24,3 45,39 3,39" fill="url(#prismGrad1)" />
               <polygon points="24,3 3,39 24,28" fill="url(#prismGrad2)" opacity="0.85" />
               <polygon points="3,39 45,39 24,28" fill="url(#prismGrad3)" opacity="0.65" />
-
-              {/* Medical Plus (+) Symbol */}
               <rect x="21" y="16" width="6" height="18" rx="1.5" fill="#ffffff" />
               <rect x="15" y="22" width="18" height="6" rx="1.5" fill="#ffffff" />
             </svg>
@@ -66,22 +57,27 @@ export default function Navbar() {
             <span className="text-xl font-black text-gray-900 block leading-none tracking-tight">PRISM</span>
             <span className="text-[10px] tracking-widest text-blue-600 font-bold uppercase">Hospital</span>
           </div>
-        </button>
+        </Link>
 
         {/* Desktop Links */}
         <nav className="hidden md:flex items-center space-x-7">
-          {links.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => scrollToSection(link.id)}
-              className="text-xs font-semibold text-gray-600 hover:text-blue-600 transition cursor-pointer uppercase tracking-wider"
-            >
-              {link.name}
-            </button>
-          ))}
+          {links.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`text-xs font-semibold uppercase tracking-wider transition-colors ${
+                  isActive ? 'text-blue-600 border-b-2 border-blue-600 pb-1' : 'text-gray-600 hover:text-blue-600'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* 24/7 Emergency Number */}
+        {/* Emergency Contact */}
         <div className="hidden lg:flex items-center gap-3 bg-blue-50/70 border border-blue-100 py-1.5 px-3.5 rounded-full">
           <div className="p-1.5 bg-blue-600 text-white rounded-full">
             <Phone className="h-4 w-4" />
@@ -94,23 +90,24 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Hamburger Toggle */}
         <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-gray-700">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Clean Routing) */}
       {open && (
         <div className="md:hidden border-t border-gray-100 bg-white px-5 py-4 space-y-3 shadow-lg">
           {links.map((link) => (
-            <button
+            <Link
               key={link.name}
-              onClick={() => scrollToSection(link.id)}
+              to={link.path}
+              onClick={() => setOpen(false)}
               className="block w-full text-left py-2 text-sm font-semibold text-gray-700 hover:text-blue-600 border-b border-gray-50"
             >
               {link.name}
-            </button>
+            </Link>
           ))}
           <div className="pt-2 flex items-center gap-2 text-xs font-bold text-blue-600">
             <Phone className="h-4 w-4" /> +91 7073889265 (24/7 Emergency)
