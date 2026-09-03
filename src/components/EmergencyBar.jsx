@@ -41,7 +41,7 @@ export default function EmergencyBar() {
             </div>
           </div>
           <a 
-            href={`https://wa.me/${whatsappNumber}?text=Hello%20CityCare%20Hospital,%20I%20want%20to%20book%20an%20appointment.`}
+            href={`https://wa.me/${whatsappNumber}?text=Hello%20PRISM%20Hospital,%20I%20want%20to%20book%20an%20appointment.`}
             target="_blank" 
             rel="noreferrer"
             className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full transition shrink-0"
