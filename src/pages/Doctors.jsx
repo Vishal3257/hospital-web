@@ -14,7 +14,7 @@ const doctorsList = [
     dept: "Cardiology",
     badgeColor: "bg-blue-600",
     about: "Expert in interventional cardiology, heart failure & preventive cardiology.",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=500&auto=format&fit=crop&q=80",
     available: true
   },
   {
@@ -47,7 +47,7 @@ const doctorsList = [
     dept: "Pediatrics",
     badgeColor: "bg-amber-500",
     about: "Child healthcare, vaccinations, newborn care & growth monitoring.",
-    image: "https://images.unsplash.com/photo-1594824813637-440f2f01f845?w=500&auto=format&fit=crop&q=80",
+    image: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=500",
     available: true
   },
   {
@@ -69,7 +69,7 @@ const doctorsList = [
     dept: "General Medicine",
     badgeColor: "bg-rose-500",
     about: "Managing acute & chronic illnesses, infections & lifestyle disorders.",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=500&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&auto=format&fit=crop&q=80",
     available: true
   },
   {
@@ -111,10 +111,9 @@ export default function Doctors() {
     <div className="bg-slate-50 min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Hero Section */}
+        {/* Top Hero Section (Breadcrumbs Removed) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
           <div className="lg:col-span-7 space-y-4">
-            <p className="text-xs text-gray-500 mb-1">Home &gt; Doctors</p>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Our Expert Doctors</h1>
             <p className="text-xs sm:text-sm text-gray-600 max-w-lg leading-relaxed">
               Our team of highly qualified and experienced doctors is dedicated to providing the best possible care for you and your family.
@@ -216,7 +215,10 @@ export default function Doctors() {
                   <img 
                     src={doc.image} 
                     alt={doc.name} 
-                    className="w-full h-52 object-cover bg-gray-100" 
+                    className="w-full h-52 object-cover bg-gray-100"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=500";
+                    }}
                   />
                   <span className={`absolute top-3 left-3 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm ${doc.badgeColor}`}>
                     {doc.dept}
@@ -235,7 +237,7 @@ export default function Doctors() {
               </div>
 
               <div className="p-4 pt-0 grid grid-cols-2 gap-2 text-xs">
-                <button className="border border-gray-200 py-1.5 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition">
+                <button className="border border-gray-200 py-1.5 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition cursor-pointer">
                   View Profile
                 </button>
                 <Link 
@@ -251,7 +253,7 @@ export default function Doctors() {
 
         {/* View All Doctors Button */}
         <div className="text-center mb-16">
-          <button className="border border-gray-300 text-gray-700 px-5 py-2 rounded-lg text-xs font-semibold hover:bg-white transition inline-flex items-center gap-1.5">
+          <button className="border border-gray-300 text-gray-700 px-5 py-2 rounded-lg text-xs font-semibold hover:bg-white transition inline-flex items-center gap-1.5 cursor-pointer">
             View All Doctors <ArrowRight className="h-3.5 w-3.5" />
           </button>
         </div>

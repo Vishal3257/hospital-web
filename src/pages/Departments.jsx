@@ -85,10 +85,9 @@ export default function Departments() {
     <div className="bg-slate-50 min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Hero Section */}
+        {/* Top Hero Section (Breadcrumbs Removed) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
           <div className="lg:col-span-7 space-y-4">
-            <p className="text-xs text-gray-500 mb-1">Home &gt; Departments</p>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">Our Departments</h1>
             <p className="text-xs sm:text-sm text-gray-600 max-w-lg leading-relaxed">
               We offer a wide range of specialized departments to meet your healthcare needs. Our expert doctors and advanced technology ensure the best possible care for you and your family.
@@ -174,7 +173,7 @@ export default function Departments() {
 
         {/* View All Departments Button */}
         <div className="text-center mb-16">
-          <button className="border border-gray-300 text-gray-700 px-5 py-2 rounded-lg text-xs font-semibold hover:bg-white transition inline-flex items-center gap-1.5">
+          <button className="border border-gray-300 text-gray-700 px-5 py-2 rounded-lg text-xs font-semibold hover:bg-white transition inline-flex items-center gap-1.5 cursor-pointer">
             View All Departments <ArrowRight className="h-3.5 w-3.5" />
           </button>
         </div>
@@ -193,7 +192,9 @@ export default function Departments() {
               </div>
               <div className="text-left">
                 <p className="text-[10px] text-blue-100">24/7 Emergency Support</p>
-                <p className="text-sm font-bold text-white">+91 12345 67890</p>
+                <a href="tel:+917073889265" className="text-sm font-bold text-white hover:underline">
+                  +91 7073889265
+                </a>
               </div>
             </div>
 
@@ -206,10 +207,10 @@ export default function Departments() {
           </div>
         </div>
 
-        {/* Why Choose CityCare Hospital - 4 Cards */}
+        {/* Why Choose PRISM Hospital - 4 Cards */}
         <div className="mb-12">
           <div className="text-center max-w-xl mx-auto mb-8">
-            <span className="text-xs font-semibold text-blue-600 tracking-widest uppercase">Why Choose CityCare Hospital</span>
+            <span className="text-xs font-semibold text-blue-600 tracking-widest uppercase">Why Choose PRISM Hospital</span>
             <h2 className="text-2xl font-bold text-gray-900 mt-1">Excellence in Every Department</h2>
           </div>
 

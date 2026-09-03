@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Shield, Users, Clock, ChevronRight, Cpu, 
-  HeartHandshake, DollarSign, Calendar 
+  HeartHandshake, DollarSign, Calendar, Phone, ArrowRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import StatBanner from '../components/StatBanner';
@@ -73,7 +73,7 @@ export default function Services() {
   return (
     <div className="bg-slate-50 min-h-screen">
       
-      {/* Top Banner */}
+      {/* Top Banner (Clean - No Breadcrumbs) */}
       <section className="py-12 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-4">
@@ -84,7 +84,7 @@ export default function Services() {
               <span className="text-blue-600">Your Family</span>
             </h1>
             <p className="text-xs sm:text-sm text-gray-600 max-w-lg leading-relaxed">
-              We offer a wide range of healthcare services using advanced technology and a patient-first approach to deliver the best possible care.
+              At PRISM Hospital, we offer a wide range of healthcare services using advanced technology and a patient-first approach to deliver the best possible care.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
@@ -117,6 +117,9 @@ export default function Services() {
               src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&auto=format&fit=crop&q=80" 
               alt="Hospital Reception" 
               className="rounded-2xl shadow-md w-full object-cover h-72 sm:h-80"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=700&auto=format&fit=crop&q=80";
+              }}
             />
           </div>
         </div>
@@ -142,13 +145,16 @@ export default function Services() {
                   to="/appointments" 
                   className="inline-flex items-center gap-1 text-[11px] font-semibold text-blue-600 mt-3 hover:underline"
                 >
-                  Learn More <ChevronRight className="h-3 w-3" />
+                  Book Now <ChevronRight className="h-3 w-3" />
                 </Link>
               </div>
               <img 
                 src={item.img} 
                 alt={item.title} 
-                className="w-full h-32 object-cover border-t border-gray-100" 
+                className="w-full h-32 object-cover border-t border-gray-100 bg-gray-50" 
+                onError={(e) => {
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=500&auto=format&fit=crop&q=80";
+                }}
               />
             </div>
           ))}
@@ -159,17 +165,25 @@ export default function Services() {
       <section className="py-12 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-5 space-y-4">
-            <span className="text-xs font-semibold text-blue-600 uppercase tracking-wider">Why Choose Us</span>
+            <span className="text-xs font-semibold text-blue-600 uppercase tracking-wider">Why Choose PRISM</span>
             <h3 className="text-2xl font-bold text-gray-900">Your Health is Our Priority</h3>
             <p className="text-xs text-gray-500 leading-relaxed">
               We are committed to providing exceptional healthcare services with compassion, advanced technology, and a patient-first approach.
             </p>
-            <Link 
-              to="/appointments" 
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition"
-            >
-              <Calendar className="h-4 w-4" /> Book an Appointment
-            </Link>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link 
+                to="/appointments" 
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition"
+              >
+                <Calendar className="h-4 w-4" /> Book an Appointment
+              </Link>
+              <a 
+                href="tel:+917073889265"
+                className="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg text-xs font-semibold hover:bg-gray-50 transition"
+              >
+                <Phone className="h-3.5 w-3.5 text-blue-600" /> +91 7073889265
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">

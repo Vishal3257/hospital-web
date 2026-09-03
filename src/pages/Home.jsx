@@ -37,7 +37,7 @@ export default function Home() {
     { id: 8, name: "Nephrology", desc: "Comprehensive kidney care and treatment for renal disorders.", img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&auto=format&fit=crop&q=80" },
   ];
 
-  // 2. Doctors Data (Dr. Neha Kapoor updated with guaranteed working female doctor CDN)
+  // 2. Doctors Data (Dr. Rahul Sharma & Dr. Neha Kapoor working high-res links)
   const doctorsList = [
     {
       id: 1,
@@ -81,7 +81,7 @@ export default function Home() {
     }
   ];
 
-  // 3. Appointments Data (Dr. Neha Kapoor updated in table)
+  // 3. Appointments Data
   const [appointmentsList, setAppointmentsList] = useState([
     { 
       id: 'APT-2024-0001', 

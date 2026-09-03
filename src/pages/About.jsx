@@ -53,10 +53,9 @@ export default function About() {
         {/* Intro Hero Section with Exterior Hospital Building */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
           <div className="lg:col-span-6 space-y-4">
-            <p className="text-xs text-gray-500 mb-1">Home &gt; About Us</p>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">About Us</h1>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              At CityCare Hospital, we are committed to providing exceptional healthcare with compassion, advanced technology, and a patient-first approach.
+              At PRISM Hospital, we are committed to providing exceptional healthcare with compassion, advanced technology, and a patient-first approach.
             </p>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
               Our mission is to improve lives and build healthier communities through excellence in medical care and innovation.
@@ -80,7 +79,7 @@ export default function About() {
         {/* 25,000+ Stat Banner */}
         <StatBanner />
 
-        {/* Why Choose Us - Now with Rich Card Images */}
+        {/* Why Choose Us */}
         <div className="my-16 text-center">
           <span className="text-xs font-semibold text-blue-600 uppercase tracking-widest">Why Choose Us</span>
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1 mb-8">We Are Dedicated to Your Health</h2>
@@ -173,7 +172,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Bottom CTA Banner with your number */}
+        {/* Bottom CTA Banner */}
         <div className="bg-blue-600 text-white rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
           <div>
             <h3 className="text-base font-bold">We Are Here to Help You</h3>

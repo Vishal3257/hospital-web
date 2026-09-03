@@ -52,7 +52,7 @@ const initialAppointments = [
     patientImg: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=80',
     doctor: 'Dr. Neha Kapoor', 
     doctorRole: 'Pediatrician',
-    doctorImg: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=100&auto=format&fit=crop&q=80',
+    doctorImg: 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=100',
     dept: 'Pediatrics', 
     date: '16 May 2024', 
     time: '10:30 AM', 
@@ -111,7 +111,9 @@ export default function Appointments() {
       patientImg: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80',
       doctor: formData.doctor,
       doctorRole: 'Specialist',
-      doctorImg: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=100&auto=format&fit=crop&q=80',
+      doctorImg: formData.doctor === 'Dr. Neha Kapoor'
+        ? 'https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=100'
+        : 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=100&auto=format&fit=crop&q=80',
       dept: formData.dept,
       date: formData.date || 'Today',
       time: formData.time || '11:00 AM',
@@ -133,9 +135,8 @@ export default function Appointments() {
     <div className="bg-slate-50 min-h-screen py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Title */}
+        {/* Title (Breadcrumb Removed) */}
         <div className="mb-6">
-          <p className="text-xs text-gray-500 mb-1">Home &gt; Appointments</p>
           <h1 className="text-3xl font-extrabold text-gray-900">Appointments</h1>
           <p className="text-xs text-gray-500 mt-1">Book an appointment with our expert doctors. We are here to care for you and your family.</p>
         </div>
@@ -249,7 +250,14 @@ export default function Appointments() {
 
                       <td className="py-3 px-3 whitespace-nowrap">
                         <div className="flex items-center gap-2">
-                          <img src={row.doctorImg} alt={row.doctor} className="w-8 h-8 rounded-full object-cover shrink-0 border border-gray-100 bg-gray-50" />
+                          <img 
+                            src={row.doctorImg} 
+                            alt={row.doctor} 
+                            className="w-8 h-8 rounded-full object-cover shrink-0 border border-gray-100 bg-gray-50"
+                            onError={(e) => {
+                              e.currentTarget.src = "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=100";
+                            }}
+                          />
                           <div>
                             <p className="font-semibold text-gray-800 leading-tight">{row.doctor}</p>
                             <p className="text-[10px] text-gray-400">{row.doctorRole}</p>
