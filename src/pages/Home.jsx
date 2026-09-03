@@ -709,7 +709,7 @@ export default function Home() {
                     <input 
                       type="text" 
                       required 
-                      placeholder="e.g. Rahul Verma" 
+                      placeholder="e.g. Vishal Thakur" 
                       value={formData.patientName}
                       onChange={(e) => setFormData({...formData, patientName: e.target.value})}
                       className="w-full pl-9 pr-3 py-2 text-xs border border-gray-300 rounded-lg focus:outline-blue-500"
@@ -724,7 +724,7 @@ export default function Home() {
                     <input 
                       type="tel" 
                       required 
-                      placeholder="+91 98765 43210" 
+                      placeholder="+91 7073889265" 
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       className="w-full pl-9 pr-3 py-2 text-xs border border-gray-300 rounded-lg focus:outline-blue-500"
